@@ -1,0 +1,22 @@
+Package: pye.pkg
+Title: An R package for processing sodium channel data
+Version: 0.1
+Authors@R: c(
+  person(given = "Madeline", 
+          family = "Pye", 
+          role = c("cre", "aut"),
+          email = "madeline.pye@selu.edu")
+          )
+Description: This R package is designed to process sodium channel data collected, but it is able to be applied to various data sets. The package is designed for manipulating and evaluating continuous data with some categorical data through visualization methods and data evaluation.
+License: MIT + file LICENSE
+Depends: 
+  R (>= 2.10)
+Imports: 
+  tidyverse
+RoxygenNote: 7.1.1
+Suggests:
+  knitr,
+  rmarkdown
+VignetteBuilder: knitr
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)

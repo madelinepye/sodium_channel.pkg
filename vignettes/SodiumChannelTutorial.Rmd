@@ -1,0 +1,13 @@
+---
+title: "SodiumChannelTutorial"
+author: "Maddy Pye"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+This R package is designed for manipulating and interpreting data collected from a sodium channel experiment. This package can create plots, manipulate data frames, and summarize data based on some techniques used to evaluate socium channel voltage data.
