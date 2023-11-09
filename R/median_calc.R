@@ -4,7 +4,7 @@
 #'Returns median value
 #'
 #'@param data Where the data is selected from (data frame)
-#'@param column The column containing the target data (numeric)
+#'@param column The name of the column containing the numerical data (string)
 #'@return The median of the data from the column selected
 #'
 #'@export
@@ -14,6 +14,6 @@ median_calc <- function(data, column){
     print("Column data must be numeric.")
     } else {    
       number <- data %>% 
-      summarize(median({{column}}))
+      summarize(median = median(data[[column]]))
       return(number)}
 }
