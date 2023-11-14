@@ -19,6 +19,24 @@
     <loc>/index.html</loc>
   </url>
   <url>
+    <loc>/reference/bargraph_plot.html</loc>
+  </url>
+  <url>
     <loc>/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>/reference/linear_model.html</loc>
+  </url>
+  <url>
+    <loc>/reference/median_calc.html</loc>
+  </url>
+  <url>
+    <loc>/reference/selecting_data.html</loc>
+  </url>
+  <url>
+    <loc>/reference/splot_sodium.html</loc>
+  </url>
+  <url>
+    <loc>/reference/summarize_data.html</loc>
   </url>
 </urlset>

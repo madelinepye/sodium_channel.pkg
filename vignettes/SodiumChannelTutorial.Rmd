@@ -12,15 +12,16 @@ knitr::opts_chunk$set(echo = TRUE)
 This package is installable by accessing the following code along with the listed packages:
 
 ```{r}
-devtools::install_github("madelinepye/pye.pkg")
+devtools::install_github("madelinepye/sodium_channel.pkg")
 ```
 
 In this tutorial, we will be using this data set collected for the 2019 paper ___, the set by which this package was designed for.
 
 ```{r}
+#install.packages("googlesheets4")
 library(googlesheets4)
 googlesheets4::gs4_deauth()
 sodium_data <- read_sheet("https://docs.google.com/spreadsheets/d/1KkQl2t9AQ7L0yUngONNebEjbr-tVC3WLaHjdTLSHW-o/edit?usp=sharing")
 ```
 
-This R package is designed for manipulating and interpreting data collected from a sodium channel experiment. This package can create plots, manipulate data frames, and summarize data based on some techniques used to evaluate socium channel voltage data.
+This R package is designed for manipulating and interpreting data collected from a sodium channel experiment. This package can create plots, manipulate data frames, and summarize data based on some techniques used to evaluate sodium channel voltage data.
