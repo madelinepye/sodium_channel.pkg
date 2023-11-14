@@ -5,7 +5,9 @@
 #'
 #'@param data Where the data is selected from (data frame)
 #'@param continuous_var The name of the numeric column being summarized (string)
-#'@return A data frame with the summary of the data based on the grouping varibale
+#'@return A data frame with the summary of the data based on the grouping variable
+#'
+#'@export
 
 summarize_data <- function(data, continuous_var){
  if (!is.numeric(data[[continuous_var]])){
