@@ -15,6 +15,6 @@ summarize_data(data, continuous_var)
 A data frame with the summary of the data based on the grouping variable
 }
 \description{
-This function allows one to summarize a continuous variable based on a categorical grouping variable. By doing this, one can compare the continuous data trends between the different categories of the data frame.
-Returns a data frame of the summary, including a mean, minimum, and maximum based on the grouping variable
+This function allows one to summarize a continuous variable of a data frame. By doing this, one can compare the continuous data trends of the data frame.
+Returns a data frame of the summary, including a mean, minimum, and maximum values.
 }
