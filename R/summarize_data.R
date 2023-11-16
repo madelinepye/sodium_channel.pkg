@@ -1,7 +1,7 @@
 #'Summarizes data
 #'
-#'This function allows one to summarize a continuous variable based on a categorical grouping variable. By doing this, one can compare the continuous data trends between the different categories of the data frame.
-#'Returns a data frame of the summary, including a mean, minimum, and maximum based on the grouping variable
+#'This function allows one to summarize a continuous variable of a data frame. By doing this, one can compare the continuous data trends of the data frame.
+#'Returns a data frame of the summary, including a mean, minimum, and maximum values.
 #'
 #'@param data Where the data is selected from (data frame)
 #'@param continuous_var The name of the numeric column being summarized (string)

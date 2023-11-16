@@ -15,7 +15,7 @@ This package is installable by accessing the following code along with the liste
 devtools::install_github("madelinepye/sodium_channel.pkg")
 ```
 
-In this tutorial, we will be using this data set collected for the 2019 paper ___, the set by which this package was designed for.
+In this tutorial, we will be using this data set collected for the academic paper "Substituted cysteine scanning in D1-S6 of the sodium channel hNav1.4 alters kinetics and structural interactions of slow inactivation" by Jonathan M Beard, Penny E Shockett, John P O'Reilly (DOI: 10.1016/j.bbamem.2019.183129). This data set is what this package was designed to evaluate.
 
 ```{r}
 #install.packages("googlesheets4")
@@ -24,4 +24,51 @@ googlesheets4::gs4_deauth()
 sodium_data <- read_sheet("https://docs.google.com/spreadsheets/d/1KkQl2t9AQ7L0yUngONNebEjbr-tVC3WLaHjdTLSHW-o/edit?usp=sharing")
 ```
 
-This R package is designed for manipulating and interpreting data collected from a sodium channel experiment. This package can create plots, manipulate data frames, and summarize data based on some techniques used to evaluate sodium channel voltage data.
+This R package is designed for manipulating and interpreting data collected from the sodium channel experiment mentioned above, which was used to evaluate the affects of amino acid mutations of a sodium channel. To do this, this package can create plots, manipulate data frames, and summarize data based on some techniques used to evaluate sodium channel voltage data.
+
+# Using the functions within Pye.pkg
+
+This tutorial will be using the above data frame by which the package was designed for.
+
+## Selecting Data
+
+This function allows the user to select certain columns within the data set to allow a user to focus on particular aspects of the data frame. The function will return the selected columns as a new data frame. To do this, you must first create a value that is equivalent to string values that are the name(s) of the columns desired. Once you have created this variable, you will then use the following function with the data frame and the variable, as shown below.
+
+```{r}
+desired_columns <- c("Effects_Sact", "Act_k", "SSFI_k", "SSSI_k")
+# Names of columns must be in quotation marks or the function will not work.
+selecting_data(sodium_data, desired_columns)
+```
+
+## Summarizing Data
+
+This function allows the user to summarize a continuous variable. By doing this, one can evaluate the numeric data trends a category of the data frame. The function returns a data frame of the summary, including a mean, minimum, and maximum values. To use this, you will need the data frame and the string value name of the numeric column of the data frame.
+```{r}
+summarize_data(sodium_data, "Act_k")
+# Name of column must be in quotation marks or the function will not work.
+```
+
+## Calculating the Median
+
+This function allows data to be described in terms of median for a data set that is based on averages.  It returns a median value for a numeric column of a data frame.
+```{r}
+median_calc(sodium_data, "Act_V0.5_mV")
+```
+
+## Creating a Scatterplot
+
+```{r}
+
+```
+
+## Creating a Bar Graph
+
+```{r}
+
+```
+
+## Linear Modeling
+
+```{r}
+
+```
