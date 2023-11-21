@@ -13,6 +13,11 @@ This package is installable by accessing the following code along with the liste
 
 ```{r}
 devtools::install_github("madelinepye/sodium_channel.pkg")
+#install.packages("tidyverse")
+#install.packages("ggplot2")
+library(pye.pkg)
+library(ggplot2)
+library(tidyverse)
 ```
 
 In this tutorial, we will be using this data set collected for the academic paper "Substituted cysteine scanning in D1-S6 of the sodium channel hNav1.4 alters kinetics and structural interactions of slow inactivation" by Jonathan M Beard, Penny E Shockett, John P O'Reilly (DOI: 10.1016/j.bbamem.2019.183129). This data set is what this package was designed to evaluate.
@@ -35,40 +40,56 @@ This tutorial will be using the above data frame by which the package was design
 This function allows the user to select certain columns within the data set to allow a user to focus on particular aspects of the data frame. The function will return the selected columns as a new data frame. To do this, you must first create a value that is equivalent to string values that are the name(s) of the columns desired. Once you have created this variable, you will then use the following function with the data frame and the variable, as shown below.
 
 ```{r}
-desired_columns <- c("Effects_Sact", "Act_k", "SSFI_k", "SSSI_k")
-# Names of columns must be in quotation marks or the function will not work.
-selecting_data(sodium_data, desired_columns)
+library(pye.pkg)
+selecting_data(data=sodium_data,columns=c("Effects_Sact", "Act_k", "SSFI_k", "SSSI_k"))
+# The names of the columns need to be in quotation marks.
 ```
 
 ## Summarizing Data
 
 This function allows the user to summarize a continuous variable. By doing this, one can evaluate the numeric data trends a category of the data frame. The function returns a data frame of the summary, including a mean, minimum, and maximum values. To use this, you will need the data frame and the string value name of the numeric column of the data frame.
+
 ```{r}
-summarize_data(sodium_data, "Act_k")
-# Name of column must be in quotation marks or the function will not work.
+library(pye.pkg)
+summarize_data(data = sodium_data, continuous_var = "Act_k")
+# The column name needs to be in quotation marks.
 ```
 
 ## Calculating the Median
 
-This function allows data to be described in terms of median for a data set that is based on averages.  It returns a median value for a numeric column of a data frame.
+This function allows data to be described in terms of median for a data set that is based on averages.  It returns a median value for a numeric column of a data frame. To use this, you will need to input the data frame and the string value name of the numeric column of the data frames.
 ```{r}
-median_calc(sodium_data, "Act_V0.5_mV")
+library(pye.pkg)
+median_calc(data = sodium_data, column = "Act_V0.5_mV")
+# The column name needs to be in quotation marks.
 ```
 
 ## Creating a Scatterplot
 
-```{r}
+This function allows one to create a scatterplot of a data frame with the color of the points being determined based off of a categorical variable in the data frame. To use this you will need a data frame, the string value name of the numeric column of the data frame for the x-axis, the string value name of the numeric column of the data frame for the y-axis, and the string value name of the categorical column of the data frame for the color. You will also need a title as a string value and two string values for the x and y-axis titles.
 
+```{r}
+library(pye.pkg)
+splot_sodium(data = sodium_data, x_data = "Act_k", y_data = "SSSI_k",color = "Effects_Sact", title = "Title", x_title = "X-title", y_title = "Y-axis")
+# The titles and column names must be in quotation marks.
 ```
 
 ## Creating a Bar Graph
 
-```{r}
+This function allows one to create a bar graph of a data frame with the color of the bars being determined based off of a categorical variable in the data frame. To use this you will need a data frame, the string value name of the numeric column of the data frame for the x-axis, the string value name of the numeric column of the data frame for the y-axis, and the string value name of the categorical column of the data frame for the color. You will also need a title as a string value and two string values for the x and y-axis titles.
 
+```{r}
+library(pye.pkg)
+bargraph_plot(data = sodium_data, x_data = "Channel", y_data = "SSSI_k", color = "Effects_Sact", title = "Title", x_title = "X-title", y_title = "Y-axis")
+# The titles and column names must be in quotation marks.
 ```
 
 ## Linear Modeling
 
-```{r}
+This function allows one to evaluate a data set through linear modeling. To use this, you will need a data frame and the string values of two columns of numeric data that you believe may have correlation.
 
+```{r}
+library(pye.pkg)
+linear_model(data = sodium_data, x_var = "Act_k", y_var = "SSSI_k")
+# The column names need to be in quotation marks.
 ```

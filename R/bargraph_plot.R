@@ -10,7 +10,7 @@
 #'@param title The title of the bar graph that will be above the data (string)
 #'@param x_title The title of the x-axis (string)
 #'@param y_title The title of the y-axis (string)
-#'@return The visual bar graph
+#'@return The bar graph with colored bars
 #'
 #'@export
 
@@ -18,11 +18,17 @@ bargraph_plot <- function(data, x_data, y_data, color, title, x_title, y_title){
   if (!is.character(title)){
     print("Title must be a string value.")
   } else if (!is.character(x_title)){
-    print("X axis label must be a string value.")
+    print("X-axis label must be a string value.")
   } else if (!is.character(y_title)){
-    print("Y axis label must be a string value.")
+    print("Y-axis label must be a string value.")
+  } else if (!is.character(data[[x_data]])){
+    print("X-axis data must be catergorical data.")
+  } else if (!is.numeric(data[[y_data]])){
+    print("Y-axis must be numeric data.")
+  } else if (!is.character(data[[color]])){
+    print("The data that determines the color must be categorical.")
   } else {
-    bar_plot <- ggplot(data, mapping = aes (x = {{x_data}}, y = {{y_data}}, fill = {{color}})) + geom_col()
+    bar_plot <- ggplot(data, mapping = aes (x = !!sym(x_data), y = !!sym(y_data), fill = !!sym(color))) + geom_col()
     bar_plot1 <- bar_plot + labs(title = title, x = x_title, y = y_title)
     return(bar_plot1)}
 }

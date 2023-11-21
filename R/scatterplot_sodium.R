@@ -21,7 +21,11 @@ splot_sodium <- function(data, x_data, y_data, color, title, x_title, y_title){
     print("X axis label must be a string value.")
   } else if (!is.character(y_title)){
     print("Y axis label must be a string value.")
-  } else {scatterplot <- ggplot(data, aes(x = {{x_data}}, y = {{y_data}}, color = {{color}})) + geom_point()
+  } else if (!is.character(data[[color]])){
+    print("The column for color must be categorical data.")
+  } else {
+    scatterplot <- ggplot(data, aes(x = !!sym(x_data), y = !!sym(y_data), color = !!sym(color))) + geom_point()
   scatterplot1 <- scatterplot + labs(title = title, x = x_title, y = y_title)
   return(scatterplot1)}
 }
+
